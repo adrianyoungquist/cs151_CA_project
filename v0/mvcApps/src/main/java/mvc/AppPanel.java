@@ -119,4 +119,9 @@ public class AppPanel extends JPanel implements ActionListener, Subscriber {
     public void update() {
 
     }
+
+    @Override
+    public void update(String msg, Object oldState, Object newState) {
+        update();
+    }
 }

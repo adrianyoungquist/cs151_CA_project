@@ -7,7 +7,7 @@ public interface AppFactory {
 
     String[] getEditCommands();
 
-    Command makeEditCommand(Model model, String command, Object source);
+    Command makeEditCommand(Model model, String commandName, Object source);
 
     String getHelp();
 
