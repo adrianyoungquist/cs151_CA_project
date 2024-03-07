@@ -1,6 +1,7 @@
 package stopLight;
 
 import mvc.*;
+
 import java.awt.Color;
 
 public class Stoplight extends Model {
@@ -10,7 +11,9 @@ public class Stoplight extends Model {
         return color;
     }
 
-    public String toString() { return "stopLight.color = " + color; }
+    public String toString() {
+        return "stopLight.color = " + color;
+    }
 
     public void change() {
         if (color.equals(Color.GREEN)) color = Color.YELLOW;

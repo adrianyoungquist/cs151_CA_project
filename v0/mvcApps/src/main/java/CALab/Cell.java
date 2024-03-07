@@ -4,6 +4,7 @@ package CALab;
 import java.awt.*;
 import java.util.*;
 import java.io.*;
+
 import mvc.*;
 
 public abstract class Cell extends Publisher implements Serializable {
@@ -38,12 +39,16 @@ public abstract class Cell extends Publisher implements Serializable {
 
     // observer neighbors' states
     public abstract void observe();
+
     // interact with a random neighbor
     public abstract void interact();
+
     // update my state
     public abstract void update();
+
     // set status to status + 1 mod whatever
     public abstract void nextState();
+
     // set status to a random or initial value
     public abstract void reset(boolean randomly);
 

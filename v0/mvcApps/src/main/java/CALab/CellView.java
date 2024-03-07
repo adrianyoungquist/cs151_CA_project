@@ -5,6 +5,7 @@ package CALab;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+
 import mvc.*;
 
 
@@ -12,12 +13,19 @@ public class CellView extends JButton implements ActionListener, Subscriber {
     private Cell myCell;
 
     public CellView(Cell c) {
+        super();
+        setOpaque(true);
         myCell = c;
-        if (c != null) { c.subscribe(this); }
+        if (c != null) {
+            c.subscribe(this);
+        }
         this.addActionListener(this);
+        update();
     }
 
-    public CellView() { this(null); }
+    public CellView() {
+        this(null);
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
