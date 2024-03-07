@@ -4,6 +4,7 @@
 package CALab;
 
 import mvc.*;
+
 import java.awt.*;
 
 public class GridView extends View {
@@ -20,7 +21,7 @@ public class GridView extends View {
         setLayout(new GridLayout(grid.getDim(), grid.getDim()));
         cellViews = new CellView[grid.getDim()][grid.getDim()];
         for (int r = 0; r < grid.getDim(); ++r) {
-            for (int c = 0; c < grid.getDim(); ++ c) {
+            for (int c = 0; c < grid.getDim(); ++c) {
                 CellView cell = new CellView(grid.getCell(r, c));
                 cellViews[r][c] = cell;
                 add(cell);

@@ -5,6 +5,7 @@ package CALab;
 import java.awt.*;
 import java.util.*;
 import java.io.*;
+
 import mvc.*;
 
 public abstract class Grid extends Model {
@@ -12,9 +13,18 @@ public abstract class Grid extends Model {
     protected int dim = 20;
     protected Cell[][] cells;
 
-    public int getDim() { return dim; }
-    public int getTime() { return time; }
-    public Cell getCell(int row, int col) { return cells[row][col]; }
+    public int getDim() {
+        return dim;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public Cell getCell(int row, int col) {
+        return cells[row][col];
+    }
+
     public abstract Cell makeCell(boolean uniform);
 
 
@@ -23,7 +33,10 @@ public abstract class Grid extends Model {
         cells = new Cell[dim][dim];
         populate();
     }
-    public Grid() { this(20); }
+
+    public Grid() {
+        this(20);
+    }
 
     protected void populate() {
         // TODO??
@@ -65,8 +78,13 @@ public abstract class Grid extends Model {
     }
 
     // overide these
-    public int getStatus() { return 0; }
-    public Color getColor() { return Color.GREEN; }
+    public int getStatus() {
+        return 0;
+    }
+
+    public Color getColor() {
+        return Color.GREEN;
+    }
 
     // cell phases:
 
@@ -84,7 +102,7 @@ public abstract class Grid extends Model {
 
     public void updateLoop(int cycles) {
         observe();
-        for(int cycle = 0; cycle < cycles; cycle++) {
+        for (int cycle = 0; cycle < cycles; cycle++) {
             interact();
             update();
             observe();

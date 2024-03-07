@@ -8,6 +8,7 @@ import mvc.*;
 
 public class StoplightPanel extends AppPanel {
     private JButton change;
+
     public StoplightPanel(AppFactory factory) {
         super(factory);
         change = new JButton("Change");

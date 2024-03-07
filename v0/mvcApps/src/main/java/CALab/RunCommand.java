@@ -6,6 +6,7 @@ import mvc.Model;
 // TODO
 public class RunCommand extends Command {
     int numTimes;
+
     public RunCommand(Model model) {
         super(model);
     }
