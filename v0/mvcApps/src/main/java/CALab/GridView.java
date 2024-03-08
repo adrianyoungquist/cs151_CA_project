@@ -3,7 +3,9 @@
 
 package CALab;
 
-import mvc.*;
+import mvc.Model;
+import mvc.Utilities;
+import mvc.View;
 
 import java.awt.*;
 
@@ -35,6 +37,7 @@ public class GridView extends View {
         set cell.row and cell.col here
         */
     }
+
     @Override
     public void update(String msg, Object oldState, Object newState) {
         // call update method of each CellView

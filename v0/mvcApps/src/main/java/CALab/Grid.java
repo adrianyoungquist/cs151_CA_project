@@ -2,16 +2,26 @@
 
 package CALab;
 
-import java.awt.*;
-import java.util.*;
-import java.io.*;
+import mvc.Model;
 
-import mvc.*;
+import java.awt.*;
+import java.util.HashSet;
+import java.util.Set;
 
 public abstract class Grid extends Model {
     static private int time = 0;
-    protected int dim = 20;
-    protected Cell[][] cells;
+    protected int dim;
+    protected final Cell[][] cells;
+
+    public Grid(int dim) {
+        this.dim = dim;
+        cells = new Cell[dim][dim];
+        populate();
+    }
+
+    public Grid() {
+        this(20);
+    }
 
     public int getDim() {
         return dim;
@@ -26,17 +36,6 @@ public abstract class Grid extends Model {
     }
 
     public abstract Cell makeCell(boolean uniform);
-
-
-    public Grid(int dim) {
-        this.dim = dim;
-        cells = new Cell[dim][dim];
-        populate();
-    }
-
-    public Grid() {
-        this(20);
-    }
 
     protected void populate() {
         // TODO??
@@ -105,7 +104,7 @@ public abstract class Grid extends Model {
         return neighbors;
     }
 
-    // overide these
+    // override these
     public int getStatus() {
         return 0;
     }

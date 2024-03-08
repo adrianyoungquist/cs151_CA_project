@@ -9,8 +9,8 @@ import java.util.Set;
 
 public class Society extends Grid {
 
-    public static Set<Integer> rebirth = new HashSet<>();
-    public static Set<Integer> death = new HashSet<>();
+    public static final Set<Integer> rebirth = new HashSet<>();
+    public static final Set<Integer> death = new HashSet<>();
     static {
         rebirth.add(3);
         death.add(0);
