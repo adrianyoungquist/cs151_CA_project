@@ -1,4 +1,4 @@
-// From https://www.cs.sjsu.edu/faculty/pearce/modules/projects/ood/CALab/src/Grid.java
+// Adapted from https://www.cs.sjsu.edu/faculty/pearce/modules/projects/ood/CALab/src/Grid.java
 
 
 package CALab;
@@ -9,7 +9,7 @@ import java.awt.*;
 
 public class GridView extends View {
 
-    private CellView cellViews[][];
+    private CellView[][] cellViews;
 
     public GridView(Model model) {
         // ???
@@ -25,6 +25,8 @@ public class GridView extends View {
                 CellView cell = new CellView(grid.getCell(r, c));
                 cellViews[r][c] = cell;
                 add(cell);
+                grid.getCell(r, c).row = r;
+                grid.getCell(r, c).col = c;
             }
         }
         /*
@@ -33,9 +35,20 @@ public class GridView extends View {
         set cell.row and cell.col here
         */
     }
-
+    @Override
     public void update(String msg, Object oldState, Object newState) {
         // call update method of each CellView
+        for (CellView[] row : cellViews) {
+            for (CellView cellView : row) {
+                // message?
+                cellView.update();
+            }
+        }
     }
 
+    @Override
+    public void update() {
+        // TODO idk what this is supposed to do?
+        update("?", null, null);
+    }
 }

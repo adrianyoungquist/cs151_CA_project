@@ -17,6 +17,7 @@ public abstract class Cell extends Publisher implements Serializable {
 
     // choose a random neighbor as a partner
     public void choosePartner() {
+        // set partner to null?
         if (partner == null && neighbors != null) {
 			/*
 			Set partner to null
