@@ -60,13 +60,31 @@ public abstract class Grid extends Model {
     // called when Populate button is clicked
     public void repopulate(boolean randomly) {
         // TODO
-        if (randomly) {
-            // randomly set the status of each cell
-        } else {
-            // set the status of each cell to 0 (dead)
+        for (int r = 0; r < dim; ++r) {
+            for (int c = 0; c < dim; ++c){
+                cells[r][c].reset(randomly);
+
+            }
         }
+    notifySubscribers();
         // notify subscribers
     }
+
+    // Method to clear the grid
+    public void clear() {
+        // Existing logic to clear the grid
+        // For example, set all cells to a default state
+        for (int r = 0; r < dim; ++r) {
+            for (int c = 0; c < dim; ++c) {
+                cells[r][c].reset(false); // Set status to default (dead)
+            }
+        }
+        notifySubscribers();
+    }
+
+
+
+
 
 
     public Set<Cell> getNeighbors(Cell asker, int radius) {
