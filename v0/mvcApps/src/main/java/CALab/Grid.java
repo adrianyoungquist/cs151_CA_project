@@ -60,13 +60,50 @@ public abstract class Grid extends Model {
     // called when Populate button is clicked
     public void repopulate(boolean randomly) {
         // TODO
-        if (randomly) {
-            // randomly set the status of each cell
-        } else {
-            // set the status of each cell to 0 (dead)
+        for (int r = 0; r < dim; ++r) {
+            for (int c = 0; c < dim; ++c) {
+                if (randomly) {
+                    // randomly set the status of each cell
+                    int randomStatus = (int) (Math.random() * 2); // Assuming status can be 0 or 1
+                    cells[r][c].setStatus(randomStatus);
+                } else {
+                    // set the status of each cell to 0 (dead)
+                    cells[r][c].setStatus(0);
+                }
+            }
         }
         // notify subscribers
+        notifySubscribers();
     }
+
+    // Method to clear the grid
+    public void clear() {
+        // Existing logic to clear the grid
+        // For example, set all cells to a default state
+        for (int r = 0; r < dim; ++r) {
+            for (int c = 0; c < dim; ++c) {
+                cells[r][c].setStatus(0); // Set status to default (dead)
+            }
+        }
+        notifySubscribers();
+    }
+
+
+    // Assuming there is a method to set the status of a cell
+    //Double check this
+    public abstract void setStatus(int status) {
+        // Implement the logic to set the status of the cell
+        this.status = status; // Assuming 'status' is a field in the Cell class
+        notifySubscribers();
+    }
+    //Double check this
+    // Assuming there is a method to set the color of a cell
+    public abstract void setColor(Color color) {
+        // Implement the logic to set the color of the cell
+        this.color = color; // Assuming 'color' is a field in the Cell class
+        notifySubscribers();
+    }
+
 
 
     public Set<Cell> getNeighbors(Cell asker, int radius) {

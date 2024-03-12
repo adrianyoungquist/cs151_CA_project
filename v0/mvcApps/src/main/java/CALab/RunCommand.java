@@ -18,6 +18,14 @@ public class RunCommand extends Command {
 
     @Override
     public void execute() {
-        System.out.println("Run " + numTimes + "!");
+        // Assuming Grid is the specific type of Model
+        if (model instanceof Grid) {
+            Grid grid = (Grid) model;
+            // Existing logic for running the grid (from the updateLoop method)
+            grid.updateLoop(numTimes);
+            System.out.println("Run " + numTimes + "!");
+        } else {
+            System.out.println("Run command is applicable only to Grid models.");
+        }
     }
 }
