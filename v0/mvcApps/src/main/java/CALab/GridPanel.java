@@ -4,7 +4,6 @@ import mvc.AppFactory;
 import mvc.AppPanel;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class GridPanel extends AppPanel {
     public GridPanel(AppFactory factory) {

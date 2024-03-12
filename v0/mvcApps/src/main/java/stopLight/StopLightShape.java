@@ -4,9 +4,14 @@ import java.awt.*;
 import java.awt.geom.Ellipse2D;
 
 public class StopLightShape {
-    private Stoplight light;
-    private int height, width, xc, yc;
-    private Ellipse2D.Double redLight, yellowLight, greenLight;
+    private final Stoplight light;
+    private final int height;
+    private final int width;
+    private final int xc;
+    private final int yc;
+    private final Ellipse2D.Double redLight;
+    private final Ellipse2D.Double yellowLight;
+    private final Ellipse2D.Double greenLight;
 
     public StopLightShape(Stoplight light, int xc, int yc, int height) {
         this.light = light;

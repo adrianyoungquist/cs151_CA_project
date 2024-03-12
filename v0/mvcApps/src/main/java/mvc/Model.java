@@ -2,7 +2,6 @@ package mvc;
 
 import java.io.Serializable;
 
-// TODO FUCK
 public abstract class Model extends Publisher implements Serializable {
     private boolean unsavedChanges;
     private String fileName;

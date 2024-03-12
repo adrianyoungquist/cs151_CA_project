@@ -1,11 +1,12 @@
 // From https://www.cs.sjsu.edu/faculty/pearce/modules/projects/ood/CALab/src/Grid.java
 package CALab;
 
-import java.awt.*;
-import java.util.*;
-import java.io.*;
+import mvc.Publisher;
 
-import mvc.*;
+import java.awt.*;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 public abstract class Cell extends Publisher implements Serializable {
 
@@ -17,6 +18,7 @@ public abstract class Cell extends Publisher implements Serializable {
 
     // choose a random neighbor as a partner
     public void choosePartner() {
+        // set partner to null?
         if (partner == null && neighbors != null) {
 			/*
 			Set partner to null
