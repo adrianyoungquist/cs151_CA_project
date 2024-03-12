@@ -7,6 +7,7 @@ import java.awt.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Random;
 
 public abstract class Cell extends Publisher implements Serializable {
 

@@ -6,6 +6,8 @@ import CALab.Grid;
 import java.awt.*;
 
 public class Agent extends Cell {
+    int status = 0;
+    int ambience = 8;
     public Agent(Grid myGrid) {
         this.myGrid = myGrid;
     }
