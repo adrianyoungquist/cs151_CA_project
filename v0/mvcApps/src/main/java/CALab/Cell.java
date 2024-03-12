@@ -23,6 +23,27 @@ public abstract class Cell extends Publisher implements Serializable {
 			Starting at a random position in the array search for a neighbor without a partner
 			Make the first such neighbor (if any) the partner and set its partner field to this
 			*/
+            Cell[] neighborArray = new Cell[neighbors.size()];
+            int i = 0;
+            for (Cell neighbor: neighbors) {
+                neighborArray[i] = neighbor;
+                i++;
+            }
+
+            Random random = new Random();
+            int index = random.nextInt(neighborArray.length);
+
+
+            while (partner == null) { // loops until partner found
+                if (neighborArray[index] != null) {
+                    partner = neighborArray[index];
+                    neighborArray[index].partner = this;
+                }
+                if (index >= neighborArray.length - 1) // correct edge case?
+                    index = 0;
+                else
+                    index++;
+            }
         }
 
     }
