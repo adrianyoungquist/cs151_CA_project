@@ -47,6 +47,7 @@ public class GridView extends View {
                 cellView.update();
             }
         }
+        repaint();
     }
 
     @Override
