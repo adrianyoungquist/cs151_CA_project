@@ -1,13 +1,13 @@
 package stopLight;
 
-import java.awt.*;
 import javax.swing.*;
 
 import mvc.*;
 
 
 public class StoplightPanel extends AppPanel {
-    private JButton change;
+    private final JButton change;
+
     public StoplightPanel(AppFactory factory) {
         super(factory);
         change = new JButton("Change");

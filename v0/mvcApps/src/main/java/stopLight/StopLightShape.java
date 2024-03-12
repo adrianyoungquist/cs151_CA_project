@@ -4,21 +4,28 @@ import java.awt.*;
 import java.awt.geom.Ellipse2D;
 
 public class StopLightShape {
-    private Stoplight light;
-    private int height, width, xc, yc;
-    private Ellipse2D.Double redLight, yellowLight, greenLight;
+    private final Stoplight light;
+    private final int height;
+    private final int width;
+    private final int xc;
+    private final int yc;
+    private final Ellipse2D.Double redLight;
+    private final Ellipse2D.Double yellowLight;
+    private final Ellipse2D.Double greenLight;
+
     public StopLightShape(Stoplight light, int xc, int yc, int height) {
         this.light = light;
         this.height = height;
         this.xc = xc;
         this.yc = yc;
         int delta = 5;
-        double diam = (height - 4 * delta)/3;
-        this.width = (int)(diam + 2 * delta);
+        double diam = (height - 4 * delta) / 3;
+        this.width = (int) (diam + 2 * delta);
         redLight = new Ellipse2D.Double(xc + delta, yc + delta, diam, diam);
         yellowLight = new Ellipse2D.Double(xc + delta, yc + diam + 2 * delta, diam, diam);
         greenLight = new Ellipse2D.Double(xc + delta, yc + 2 * diam + 3 * delta, diam, diam);
     }
+
     public StopLightShape(Stoplight light) {
         this(light, 50, 50, 100);
     }
