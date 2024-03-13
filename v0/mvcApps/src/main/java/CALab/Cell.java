@@ -38,7 +38,7 @@ public abstract class Cell extends Publisher implements Serializable {
             int index = random.nextInt(neighborArray.length);
 
 
-            while (partner == null) { // loops until partner found
+            while (partner == null) { // loops until partner found, what if all have partners?
                 if (neighborArray[index] != null) {
                     partner = neighborArray[index];
                     neighborArray[index].partner = this;

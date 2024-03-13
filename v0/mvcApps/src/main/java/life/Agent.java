@@ -14,11 +14,17 @@ public class Agent extends Cell {
 
     @Override
     public void observe() {
-
+        int count = 0;
+        for (Cell neighbor: neighbors) {
+            Agent agentNeighbor = (Agent) neighbor;
+            if (agentNeighbor.getStatus() == 1)
+                count++;
+        }
+        status = count;
     }
 
     @Override
-    public void interact() {
+    public void interact() { // no interaction phase
 
     }
 
@@ -28,7 +34,7 @@ public class Agent extends Cell {
     }
 
     @Override
-    public void nextState() {
+    public void nextState() { // no nextState
 
     }
 
@@ -39,11 +45,14 @@ public class Agent extends Cell {
 
     @Override
     public Color getColor() {
-        return null;
+        if (status == 0)
+            return Color.RED;
+        else
+            return Color.GREEN;
     }
 
     @Override
     public int getStatus() {
-        return 0;
+        return status;
     }
 }
