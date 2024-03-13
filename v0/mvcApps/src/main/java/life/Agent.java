@@ -17,7 +17,7 @@ public class Agent extends Cell {
         int count = 0;
         for (Cell neighbor: neighbors) {
             Agent agentNeighbor = (Agent)neighbor;
-            if (agentNeighbor.getStatus() == 1)
+            if (agentNeighbor.getStatus() == 1) // how to get status in first place??
                 count++;
         }
         ambience = count;
@@ -30,16 +30,19 @@ public class Agent extends Cell {
 
     @Override
     public void update() {
+        if (Society.death.contains(ambience))
+            status = 0;
+        else
+            status = 1;
+    }
+
+    @Override
+    public void nextState() { // no nextState?
 
     }
 
     @Override
-    public void nextState() { // no nextState
-
-    }
-
-    @Override
-    public void reset(boolean randomly) {
+    public void reset(boolean randomly) { // implement
 
     }
 
