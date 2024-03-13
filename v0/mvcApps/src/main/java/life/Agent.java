@@ -16,11 +16,11 @@ public class Agent extends Cell {
     public void observe() {
         int count = 0;
         for (Cell neighbor: neighbors) {
-            Agent agentNeighbor = (Agent) neighbor;
+            Agent agentNeighbor = (Agent)neighbor;
             if (agentNeighbor.getStatus() == 1)
                 count++;
         }
-        status = count;
+        ambience = count;
     }
 
     @Override
