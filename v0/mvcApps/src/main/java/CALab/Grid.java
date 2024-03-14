@@ -10,8 +10,8 @@ import java.util.Set;
 
 public abstract class Grid extends Model {
     static private int time = 0;
-    protected int dim;
     protected final Cell[][] cells;
+    protected final int dim;
 
     public Grid(int dim) {
         this.dim = dim;
@@ -38,20 +38,18 @@ public abstract class Grid extends Model {
     public abstract Cell makeCell(boolean uniform);
 
     protected void populate() {
-        // TODO??
         // 1. use makeCell to fill in cells
         // 2. use getNeighbors to set the neighbors field of each cell
         for (int r = 0; r < dim; ++r) {
             for (int c = 0; c < dim; ++c) {
                 cells[r][c] = makeCell(true); // true??
-                // TODO here?
                 cells[r][c].row = r;
                 cells[r][c].col = c;
             }
         }
         for (int r = 0; r < dim; ++r) {
             for (int c = 0; c < dim; ++c) {
-                cells[r][c].neighbors = getNeighbors(cells[r][c], 1); // radius???
+                cells[r][c].neighbors = getNeighbors(cells[r][c], 1); // radius?
             }
         }
         notifySubscribers();
@@ -59,14 +57,12 @@ public abstract class Grid extends Model {
 
     // called when Populate button is clicked
     public void repopulate(boolean randomly) {
-        // TODO
         for (int r = 0; r < dim; ++r) {
-            for (int c = 0; c < dim; ++c){
+            for (int c = 0; c < dim; ++c) {
                 cells[r][c].reset(randomly);
-
             }
         }
-    notifySubscribers();
+        notifySubscribers();
         // notify subscribers
     }
 
@@ -81,10 +77,6 @@ public abstract class Grid extends Model {
         }
         notifySubscribers();
     }
-
-
-
-
 
 
     public Set<Cell> getNeighbors(Cell asker, int radius) {
@@ -144,7 +136,6 @@ public abstract class Grid extends Model {
     }
 
     public void interact() {
-        // ???
         // TODO supposed to reset neighbors?
         for (Cell[] cellRow : cells) {
             for (Cell cell : cellRow) {
@@ -155,7 +146,6 @@ public abstract class Grid extends Model {
     }
 
     public void update() {
-        // ???
         for (Cell[] cellRow : cells) {
             for (Cell cell : cellRow) {
                 cell.update();

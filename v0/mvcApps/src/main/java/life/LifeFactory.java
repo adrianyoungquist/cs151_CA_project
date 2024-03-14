@@ -1,11 +1,9 @@
 package life;
 
 import CALab.GridFactory;
-import mvc.Command;
 import mvc.Model;
 import mvc.View;
 
-// TODO ?????
 public class LifeFactory extends GridFactory {
     @Override
     public Model makeModel() {
@@ -18,24 +16,14 @@ public class LifeFactory extends GridFactory {
     }
 
     @Override
-    public String[] getEditCommands() {
-        return super.getEditCommands();
-    }
-
-    @Override
-    public Command makeEditCommand(Model model, String commandName, Object source) {
-        return super.makeEditCommand(model, commandName, source);
-    }
-
-    @Override
     public String getHelp() {
-        // TODO?
+        // TODO
         return super.getHelp();
     }
 
     @Override
     public String about() {
-        // TODO?
+        // TODO
         return super.about();
     }
 

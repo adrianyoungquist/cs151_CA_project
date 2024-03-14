@@ -19,7 +19,7 @@ public class StopLightShape {
         this.xc = xc;
         this.yc = yc;
         int delta = 5;
-        double diam = (height - 4 * delta) / 3;
+        double diam = (height - 4 * delta) / 3.0;
         this.width = (int) (diam + 2 * delta);
         redLight = new Ellipse2D.Double(xc + delta, yc + delta, diam, diam);
         yellowLight = new Ellipse2D.Double(xc + delta, yc + diam + 2 * delta, diam, diam);
