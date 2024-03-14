@@ -1,6 +1,6 @@
 package stopLight;
 
-import mvc.*;
+import mvc.View;
 
 import java.awt.*;
 

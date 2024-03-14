@@ -1,8 +1,9 @@
 package stopLight;
 
-import javax.swing.*;
+import mvc.AppFactory;
+import mvc.AppPanel;
 
-import mvc.*;
+import javax.swing.*;
 
 
 public class StoplightPanel extends AppPanel {

@@ -1,8 +1,8 @@
 package stopLight;
 
-import mvc.*;
+import mvc.Model;
 
-import java.awt.Color;
+import java.awt.*;
 
 public class Stoplight extends Model {
     private Color color = Color.GREEN;
