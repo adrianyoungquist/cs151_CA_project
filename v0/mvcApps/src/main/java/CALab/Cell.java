@@ -6,8 +6,8 @@ import mvc.Publisher;
 import java.awt.*;
 import java.io.Serializable;
 import java.util.HashSet;
-import java.util.Set;
 import java.util.Random;
+import java.util.Set;
 
 public abstract class Cell extends Publisher implements Serializable {
 
@@ -29,7 +29,7 @@ public abstract class Cell extends Publisher implements Serializable {
 			*/
             Cell[] neighborArray = new Cell[neighbors.size()];
             int i = 0;
-            for (Cell neighbor: neighbors) {
+            for (Cell neighbor : neighbors) {
                 neighborArray[i] = neighbor;
                 i++;
             }

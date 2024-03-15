@@ -18,6 +18,8 @@ public class GridView extends View {
             Utilities.error("Somehow the model is not a grid :o");
             return;
         }
+        this.model = model;
+        model.subscribe(this);
         setLayout(new GridLayout(grid.getDim(), grid.getDim()));
         cellViews = new CellView[grid.getDim()][grid.getDim()];
         for (int r = 0; r < grid.getDim(); ++r) {
@@ -25,15 +27,22 @@ public class GridView extends View {
                 CellView cell = new CellView(grid.getCell(r, c));
                 cellViews[r][c] = cell;
                 add(cell);
-                grid.getCell(r, c).row = r;
-                grid.getCell(r, c).col = c;
             }
         }
-        /*
-        Cell cell = new CellView(((Grid)model).getCell(row, col)
-        cellViews[row][col] = cell
-        set cell.row and cell.col here
-        */
+    }
+
+    @Override
+    public void setModel(Model model) {
+        super.setModel(model);
+        if (!(model instanceof Grid grid)) {
+            Utilities.error("Somehow the model is not a grid :o");
+            return;
+        }
+        for (int r = 0; r < cellViews.length; ++r) {
+            for (int c = 0; c < cellViews.length; ++c) {
+                cellViews[r][c].setMyCell(grid.getCell(r, c));
+            }
+        }
     }
 
     @Override

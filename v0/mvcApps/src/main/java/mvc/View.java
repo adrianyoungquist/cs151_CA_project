@@ -22,13 +22,13 @@ public class View extends JPanel implements Subscriber {
 
     @Override
     public void update() {
-        repaint();
+        update("?", null, null);
     }
 
 
     // TODO?
     @Override
     public void update(String msg, Object oldState, Object newState) {
-        update();
+        repaint();
     }
 }

@@ -14,6 +14,7 @@ public abstract class Grid extends Model {
     protected final int dim;
 
     public Grid(int dim) {
+        this.setUnsavedChanges(true);
         this.dim = dim;
         cells = new Cell[dim][dim];
         populate();
@@ -52,7 +53,7 @@ public abstract class Grid extends Model {
                 cells[r][c].neighbors = getNeighbors(cells[r][c], 1); // radius?
             }
         }
-        notifySubscribers();
+        changed();
     }
 
     // called when Populate button is clicked
@@ -62,7 +63,7 @@ public abstract class Grid extends Model {
                 cells[r][c].reset(randomly);
             }
         }
-        notifySubscribers();
+        changed();
         // notify subscribers
     }
 
@@ -75,7 +76,7 @@ public abstract class Grid extends Model {
                 cells[r][c].reset(false); // Set status to default (dead)
             }
         }
-        notifySubscribers();
+        changed();
     }
 
 
@@ -131,7 +132,7 @@ public abstract class Grid extends Model {
                 cell.observe();
             }
         }
-        notifySubscribers();
+        changed();
         // call each cell's observe method and notify subscribers
     }
 
@@ -142,7 +143,7 @@ public abstract class Grid extends Model {
                 cell.interact();
             }
         }
-        notifySubscribers();
+        changed();
     }
 
     public void update() {
@@ -151,7 +152,7 @@ public abstract class Grid extends Model {
                 cell.update();
             }
         }
-        notifySubscribers();
+        changed();
     }
 
     public void updateLoop(int cycles) {
