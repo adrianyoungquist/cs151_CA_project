@@ -7,6 +7,7 @@ import java.awt.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Random;
 
 public abstract class Cell extends Publisher implements Serializable {
 
@@ -26,6 +27,24 @@ public abstract class Cell extends Publisher implements Serializable {
 			Starting at a random position in the array search for a neighbor without a partner
 			Make the first such neighbor (if any) the partner and set its partner field to this
 			*/
+            Cell[] neighborArray = new Cell[neighbors.size()];
+            int i = 0;
+            for (Cell neighbor: neighbors) {
+                neighborArray[i] = neighbor;
+                i++;
+            }
+
+            Random random = new Random();
+            int startIndex = random.nextInt(neighborArray.length);
+            int index;
+            for (int j = 0; j < neighborArray.length; j++) { // loops until partner found, what if all have partners?
+                index = (startIndex + j) % neighborArray.length;
+                if (neighborArray[index] != null && neighborArray[index].partner == null) {
+                    partner = neighborArray[index];
+                    neighborArray[index].partner = this;
+                    break;
+                }
+            }
         }
 
     }
