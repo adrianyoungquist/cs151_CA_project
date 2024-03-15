@@ -3,7 +3,6 @@ package CALab;
 import mvc.Command;
 import mvc.Model;
 
-// TODO
 public class RunCommand extends Command {
     int numTimes;
 
@@ -19,11 +18,9 @@ public class RunCommand extends Command {
     @Override
     public void execute() {
         // Assuming Grid is the specific type of Model
-        if (model instanceof Grid) {
-            Grid grid = (Grid) model;
+        if (model instanceof Grid grid) {
             // Existing logic for running the grid (from the updateLoop method)
             grid.updateLoop(numTimes);
-            System.out.println("Run " + numTimes + "!");
         } else {
             System.out.println("Run command is applicable only to Grid models.");
         }

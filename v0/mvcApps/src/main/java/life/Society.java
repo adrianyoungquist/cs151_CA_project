@@ -3,7 +3,6 @@ package life;
 import CALab.Cell;
 import CALab.Grid;
 
-import java.awt.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,6 +10,8 @@ public class Society extends Grid {
 
     public static final Set<Integer> rebirth = new HashSet<>();
     public static final Set<Integer> death = new HashSet<>();
+    public static int percentAlive = 50;
+
     static {
         rebirth.add(3);
         death.add(0);
@@ -21,20 +22,9 @@ public class Society extends Grid {
         death.add(7);
         death.add(8);
     }
-    public static int percentAlive = 50;
 
     @Override
     public Cell makeCell(boolean uniform) {
         return new Agent(this);
-    }
-
-    @Override
-    public int getStatus() {
-        return super.getStatus();
-    }
-
-    @Override
-    public Color getColor() {
-        return super.getColor();
     }
 }

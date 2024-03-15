@@ -1,6 +1,11 @@
 package stopLight;
 
-import mvc.*;
+import mvc.AppFactory;
+import mvc.Command;
+import mvc.Model;
+import mvc.View;
+
+import java.util.Objects;
 
 public class StoplightFactory implements AppFactory {
 
@@ -18,7 +23,7 @@ public class StoplightFactory implements AppFactory {
 
     // source added 3/15 to support text fields
     public Command makeEditCommand(Model model, String type, Object source) {
-        if (type == "Change")
+        if (Objects.equals(type, "Change"))
             return new ChangeCommand(model);
         return null;
     }

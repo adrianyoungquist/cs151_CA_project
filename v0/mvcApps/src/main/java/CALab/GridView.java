@@ -14,12 +14,10 @@ public class GridView extends View {
     private CellView[][] cellViews;
 
     public GridView(Model model) {
-        // ???
         if (!(model instanceof Grid grid)) {
             Utilities.error("Somehow the model is not a grid :o");
             return;
         }
-        // TODO ??
         setLayout(new GridLayout(grid.getDim(), grid.getDim()));
         cellViews = new CellView[grid.getDim()][grid.getDim()];
         for (int r = 0; r < grid.getDim(); ++r) {
@@ -52,7 +50,6 @@ public class GridView extends View {
 
     @Override
     public void update() {
-        // TODO idk what this is supposed to do?
         update("?", null, null);
     }
 }

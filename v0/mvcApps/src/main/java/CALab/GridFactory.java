@@ -5,7 +5,6 @@ import mvc.*;
 
 // TODO
 public class GridFactory implements AppFactory {
-    // TODO must be overridden?
     @Override
     public Model makeModel() {
         return null;
