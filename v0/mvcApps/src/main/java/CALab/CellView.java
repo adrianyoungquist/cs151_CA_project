@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 
 
 public class CellView extends JButton implements ActionListener, Subscriber {
-    private final Cell myCell;
+    private Cell myCell;
 
     public CellView(Cell c) {
         super();
@@ -26,6 +26,12 @@ public class CellView extends JButton implements ActionListener, Subscriber {
 
     public CellView() {
         this(null);
+    }
+
+    protected void setMyCell(Cell newCell) {
+        myCell.unsubscribe(this);
+        this.myCell = newCell;
+        myCell.subscribe(this);
     }
 
     @Override

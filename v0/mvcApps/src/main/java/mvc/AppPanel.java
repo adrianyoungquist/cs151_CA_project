@@ -33,10 +33,7 @@ public class AppPanel extends JPanel implements ActionListener, Subscriber {
         add(controlPanel);
         add(view);
 
-        if (model != null) {
-            model.subscribe(this);
-            model.subscribe(view);
-        }
+        model.subscribe(this);
 
         frame = new SafeFrame();
         Container cp = frame.getContentPane();
@@ -91,6 +88,7 @@ public class AppPanel extends JPanel implements ActionListener, Subscriber {
                     Model newModel = Utilities.open(model);
                     if (newModel != null) {
                         setModel(newModel);
+                        model.setUnsavedChanges(false);
                     }
                 }
                 case "New" -> {

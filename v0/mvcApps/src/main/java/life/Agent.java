@@ -9,6 +9,7 @@ import java.util.Random;
 public class Agent extends Cell {
     int status = 0;
     int ambience = 8;
+
     public Agent(Grid myGrid) {
         this.myGrid = myGrid;
     }
@@ -16,7 +17,7 @@ public class Agent extends Cell {
     @Override
     public void observe() {
         int count = 0;
-        for (Cell neighbor: neighbors) {
+        for (Cell neighbor : neighbors) {
             if (neighbor.getStatus() == 1)
                 count++;
         }
@@ -46,12 +47,11 @@ public class Agent extends Cell {
         Random random = new Random();
         int randomNum = random.nextInt(100);
         if (randomly) {
-            if (1.0 * randomNum/Society.percentAlive >= 1)
+            if (1.0 * randomNum / Society.percentAlive >= 1)
                 status = 1;
             else
                 status = 0;
-        }
-        else {
+        } else {
             status = 0;
         }
     }
