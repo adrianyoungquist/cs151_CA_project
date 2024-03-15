@@ -4,6 +4,7 @@ import CALab.Cell;
 import CALab.Grid;
 
 import java.awt.*;
+import java.util.Random;
 
 public class Agent extends Cell {
     int status = 0;
@@ -16,7 +17,7 @@ public class Agent extends Cell {
     public void observe() {
         int count = 0;
         for (Cell neighbor: neighbors) {
-            if (neighbor.getStatus() == 1) // how to get status in first place??
+            if (neighbor.getStatus() == 1)
                 count++;
         }
         ambience = count;
@@ -42,7 +43,17 @@ public class Agent extends Cell {
 
     @Override
     public void reset(boolean randomly) { // implement
-
+        Random random = new Random();
+        int randomNum = random.nextInt(100);
+        if (randomly) {
+            if (randomNum/Society.percentAlive >= 1)
+                status = 1;
+            else
+                status = 0;
+        }
+        else {
+            status = 0;
+        }
     }
 
     @Override
