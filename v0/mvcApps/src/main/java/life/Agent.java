@@ -46,7 +46,7 @@ public class Agent extends Cell {
         Random random = new Random();
         int randomNum = random.nextInt(100);
         if (randomly) {
-            if (randomNum/Society.percentAlive >= 1)
+            if (1.0 * randomNum/Society.percentAlive >= 1)
                 status = 1;
             else
                 status = 0;
