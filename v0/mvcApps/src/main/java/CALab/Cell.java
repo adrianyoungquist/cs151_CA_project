@@ -35,18 +35,15 @@ public abstract class Cell extends Publisher implements Serializable {
             }
 
             Random random = new Random();
-            int index = random.nextInt(neighborArray.length);
-
-
-            while (partner == null) { // loops until partner found, what if all have partners?
-                if (neighborArray[index] != null) {
+            int startIndex = random.nextInt(neighborArray.length);
+            int index;
+            for (int j = 0; j < neighborArray.length; j++) { // loops until partner found, what if all have partners?
+                index = (startIndex + j) % neighborArray.length;
+                if (neighborArray[index] != null && neighborArray[index].partner == null) {
                     partner = neighborArray[index];
                     neighborArray[index].partner = this;
+                    break;
                 }
-                if (index >= neighborArray.length - 1) // correct edge case?
-                    index = 0;
-                else
-                    index++;
             }
         }
 

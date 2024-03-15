@@ -16,8 +16,7 @@ public class Agent extends Cell {
     public void observe() {
         int count = 0;
         for (Cell neighbor: neighbors) {
-            Agent agentNeighbor = (Agent)neighbor;
-            if (agentNeighbor.getStatus() == 1) // how to get status in first place??
+            if (neighbor.getStatus() == 1) // how to get status in first place??
                 count++;
         }
         ambience = count;
@@ -32,13 +31,13 @@ public class Agent extends Cell {
     public void update() {
         if (Society.death.contains(ambience))
             status = 0;
-        else
+        else if (status == 0 && Society.rebirth.contains(ambience))
             status = 1;
     }
 
     @Override
     public void nextState() { // no nextState?
-
+        status = 1 - status;
     }
 
     @Override
