@@ -1,5 +1,6 @@
 package CALab;
 
+
 import mvc.*;
 
 
@@ -35,14 +36,16 @@ public class GridFactory implements AppFactory {
 
     @Override
     public String getHelp() {
-        // TODO
-        return "Idk I need help too";
+        return  "RUN1:     Runs the observe, interact, update loop once\n" +
+                "RUN50:    Runs RUN1 50 times \n" +
+                "POPULATE: Fills the grid with cells with different statuses\n" +
+                "CLEAR:    Sets the grid to a specified default status";
     }
 
     @Override
     public String about() {
-        // TODO
-        return "Hi I'm a grid!";
+        return "A Cellular Automata is a grid of cells where each cell represents the behavior of a region, household, individual, etc. \n" +
+                "The behavior of each cell can be simple, but when viewed holistically, the behavior of the entire grid can be complex.";
     }
 
     @Override
