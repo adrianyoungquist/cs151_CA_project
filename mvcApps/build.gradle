@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+application {
+    mainClassName = 'life.LifeMain'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'life.LifeMain'
+        )
+    }
+    from sourceSets.main.output
+}
