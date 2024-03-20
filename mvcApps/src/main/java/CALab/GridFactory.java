@@ -4,7 +4,6 @@ package CALab;
 import mvc.*;
 
 
-// TODO
 public class GridFactory implements AppFactory {
     @Override
     public Model makeModel() {
@@ -36,7 +35,7 @@ public class GridFactory implements AppFactory {
 
     @Override
     public String getHelp() {
-        return  "RUN1:     Runs the observe, interact, update loop once\n" +
+        return "RUN1:     Runs the observe, interact, update loop once\n" +
                 "RUN50:    Runs RUN1 50 times \n" +
                 "POPULATE: Fills the grid with cells with different statuses\n" +
                 "CLEAR:    Sets the grid to a specified default status";
