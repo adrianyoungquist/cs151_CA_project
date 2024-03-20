@@ -14,10 +14,10 @@ public abstract class Grid extends Model {
     protected final int dim;
 
     public Grid(int dim) {
-        this.setUnsavedChanges(true);
         this.dim = dim;
         cells = new Cell[dim][dim];
         populate();
+        this.setUnsavedChanges(false);
     }
 
     public Grid() {
@@ -43,7 +43,7 @@ public abstract class Grid extends Model {
         // 2. use getNeighbors to set the neighbors field of each cell
         for (int r = 0; r < dim; ++r) {
             for (int c = 0; c < dim; ++c) {
-                cells[r][c] = makeCell(true); // true??
+                cells[r][c] = makeCell(false);
                 cells[r][c].row = r;
                 cells[r][c].col = c;
             }
@@ -137,7 +137,6 @@ public abstract class Grid extends Model {
     }
 
     public void interact() {
-        // TODO supposed to reset neighbors?
         for (Cell[] cellRow : cells) {
             for (Cell cell : cellRow) {
                 cell.interact();

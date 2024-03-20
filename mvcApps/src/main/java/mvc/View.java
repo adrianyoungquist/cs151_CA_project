@@ -25,8 +25,6 @@ public class View extends JPanel implements Subscriber {
         update("?", null, null);
     }
 
-
-    // TODO?
     @Override
     public void update(String msg, Object oldState, Object newState) {
         repaint();

@@ -2,9 +2,9 @@ package life;
 
 import CALab.Cell;
 import CALab.Grid;
+import mvc.Utilities;
 
 import java.awt.*;
-import java.util.Random;
 
 public class Agent extends Cell {
     int status = 0;
@@ -43,9 +43,8 @@ public class Agent extends Cell {
     }
 
     @Override
-    public void reset(boolean randomly) { // implement
-        Random random = new Random();
-        int randomNum = random.nextInt(100);
+    public void reset(boolean randomly) {
+        int randomNum = Utilities.rng.nextInt(100);
         if (randomly) {
             if (1.0 * randomNum / Society.percentAlive >= 1)
                 status = 1;
