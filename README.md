@@ -1,3 +1,3 @@
-# CS 151 Project 3: Cellular Automaton
+# CS 151 Project 3: Cellular Automata
 
-Spring 2024
+Group: 
